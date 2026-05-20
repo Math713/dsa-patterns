@@ -1,5 +1,6 @@
 from collections import defaultdict
-from typing import List
+from typing import List, Any
+
 
 class Solution:
     """
@@ -13,7 +14,7 @@ class Solution:
         return sorted(sorted_elements[:k])
     """
 
-    def top_k_frequent(self, nums: List[int], k: int) -> List[int]: # Bucket Sort method
+    def top_k_frequent(self, nums: List[int], k: int) -> list[Any] | None: # Bucket Sort method
         count = defaultdict(int)
 
         for n in nums:
@@ -30,6 +31,9 @@ class Solution:
                 res.append(num)
                 if len(res) == k:
                     return res
+
+        return None
+
 
 print(Solution().top_k_frequent([1,2,2,3,3,3], 2))
 
